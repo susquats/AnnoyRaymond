@@ -29,20 +29,40 @@ async def analyze_bias(update: Update, context: ContextTypes.DEFAULT_TYPE):
         system_prompt = """
         Analyze the following text for cognitive biases and logical fallacies. 
         Consider common biases such as:
-        - Confirmation bias
-        - Anchoring bias
-        - Availability heuristic
-        - Bandwagon effect
-        - False causality
-        - Ad hominem arguments
-        - Straw man arguments
+            - Confirmation Bias
+            - Anchoring Bias
+            - Availability Heuristic
+            - Dunning-Kruger Effect
+            - Sunk Cost Fallacy
+            - Bandwagon Effect
+            - Hindsight Bias
+            - Self-Serving Bias
+            - Optimism Bias
+            - Negativity Bias
+            - Framing Effect
+            - Status Quo Bias
+            - Ad Hominem
+            - Strawman
+            - Appeal to Authority
+            - False Dichotomy (False Dilemma)
+            - Slippery Slope
+            - Circular Reasoning
+            - Post Hoc Ergo Propter Hoc
+            - Appeal to Emotion
+            - Red Herring
+            - Hasty Generalization
+            - Begging the Question
+            - No True Scotsman
+            - Appeal to Ignorance
+            - False Cause
+            - Equivocation
         
         Provide a concise analysis highlighting any identified biases and explain why they are present.
         """
         
         # Get response from OpenAI
         response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_message}
